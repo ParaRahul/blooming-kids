@@ -1,510 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blooming Kids - For the young minds to bloom</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
-  
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blooming Kids - Preschool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in {
+            animation: fadeIn 0.2s ease-out;
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center shadow-lg transform">
+                        <img 
+                            src="./logo.jpg" 
+                            alt="logo" 
+                        />
+                    </div>
+                    <span class="text-xl font-black tracking-tight text-indigo-900">
+                        BLOOMING <span class="text-pink-500">KIDS</span>
+                    </span>
+                </div>
 
-  <!-- 1. Header -->
-  <header>
-    <div class="header-container">
-      <div class="logo">Blooming kids</div>
-      <nav class="nav">
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#teacher">Teacher</a></li>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="menu-toggle" id="menu-toggle">&#9776; MENU</div>
-      </nav>
-    </div>
-    <div class="mobile-menu" id="mobile-menu">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#teacher">Teacher</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </header>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-indigo-900 font-semibold hover:text-pink-500 transition-colors">Home</a>
+                    <a href="#programs" class="text-indigo-900 font-semibold hover:text-pink-500 transition-colors">Programs</a>
+                    <a href="#about" class="text-indigo-900 font-semibold hover:text-pink-500 transition-colors">About</a>
+                    <a href="#parents" class="text-indigo-900 font-semibold hover:text-pink-500 transition-colors">Parents</a>
+                    <a href="#contact" class="text-indigo-900 font-semibold hover:text-pink-500 transition-colors">Contact</a>
+                    <button class="bg-pink-500 text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pink-600 transition-all transform hover:scale-105 active:scale-95">
+                        Apply Now
+                    </button>
+                </div>
 
-  <!-- Placeholder for sections -->
-  <!-- Section 1: Hero -->
-  <section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-6 col-lg-7 col-md-10 col-sm-11">
-                <div class="hero-content">
-                  <h1>Bright Futures Start Here</h1>
-                  <p>Empowering children to bloom through love, play, and learning.</p>
-                  <a href="#" class="btn-secondary">Explore Programs</a>
+                <!-- Mobile Toggle -->
+                <div class="md:hidden">
+                    <button id="menuToggle" class="text-indigo-900 p-2">
+                        <svg id="menuIcon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
-    
-  </section>
 
-  <!-- Section 2: Welcome -->
-    <section class="welcome-section">
-    <div class="container welcome-container">
-        <div class="welcome-text">
-        <h2>Welcome to <span>Blooming Kids</span></h2>
-        <p>A nurturing space where creativity, curiosity, and confidence take root.</p>
-        <div class="features">
-            <div class="feature-item">
-            <div class="icon-circle" style="background-color: #4bcffa;">
-                <i class="fas fa-brain"></i>
-            </div>
-            <div>
-                <h4>Creative Learning</h4>
-                <p>Unlock imagination with hands-on exploration.</p>
-            </div>
-            </div>
-            <div class="feature-item">
-            <div class="icon-circle" style="background-color: #feca57;">
-                <i class="fas fa-hand-holding-heart"></i>
-            </div>
-            <div>
-                <h4>Caring Community</h4>
-                <p>Grow in a space filled with kindness and support.</p>
-            </div>
-            </div>
-            <div class="feature-item">
-            <div class="icon-circle" style="background-color: #1dd1a1;">
-                <i class="fas fa-laptop-code"></i>
-            </div>
-            <div>
-                <h4>Digital Discovery</h4>
-                <p>Engage with fun tech for the future.</p>
-            </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-slate-100 absolute w-full left-0 hidden">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-base font-semibold text-indigo-900 hover:bg-slate-50 rounded-lg mobile-link">Home</a>
+                <a href="#programs" class="block px-3 py-3 text-base font-semibold text-indigo-900 hover:bg-slate-50 rounded-lg mobile-link">Programs</a>
+                <a href="#about" class="block px-3 py-3 text-base font-semibold text-indigo-900 hover:bg-slate-50 rounded-lg mobile-link">About</a>
+                <a href="#parents" class="block px-3 py-3 text-base font-semibold text-indigo-900 hover:bg-slate-50 rounded-lg mobile-link">Parents</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-semibold text-indigo-900 hover:bg-slate-50 rounded-lg mobile-link">Contact</a>
+                <div class="mt-4 px-3">
+                    <button class="w-full bg-pink-500 text-white py-3 rounded-xl font-bold">
+                        Apply Now
+                    </button>
+                </div>
             </div>
         </div>
-        </div>
-        <div class="welcome-image">
-        <img src="images/image4.webp" alt="Blooming Kids Activity" />
-        </div>
-    </div>
-    </section>
-  
-  <!-- Section 3: Classes We Offer -->
-    <section class="classes-section">
-    <div class="container text-center">
-        <h2>Classes <span>We Offer</span></h2>
-        <p class="subtitle">Inspiring young minds through joyful learning experiences every day.</p>
+    </nav>
 
-        <div class="classes-grid">
-        <!-- Class Card 1 -->
-        <div class="class-card">
-            <div class="class-image">
-            <img src="images/class-img1.png" alt="Class 1">
-            <span class="badge">Admission Closed</span>
-            </div>
-            <div class="class-content">
-            <h4>Playgroup</h4>
-            <p>From crafts to curious questions, kids learn through joyful exploration.</p>
-            <div class="class-meta">
-                <span><strong>2–4</strong> Age Group</span>
-                <!-- <span><strong>30</strong> Classes</span>
-                <span><strong>10</strong>/h Class Price</span> -->
-            </div>
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -z-10 w-1/3 h-full opacity-10">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#F43F5E" d="M44.7,-76.4C58.2,-69.2,70.1,-58.5,78.2,-45.4C86.3,-32.3,90.7,-16.1,89.1,-0.9C87.5,14.3,79.9,28.6,71,41.2C62.1,53.8,51.9,64.7,39.6,71.7C27.3,78.7,13.6,81.8,-0.1,82C-13.8,82.2,-27.6,79.4,-39.8,72.4C-52,65.4,-62.5,54.2,-70.6,41.4C-78.7,28.6,-84.3,14.3,-84.6,-0.2C-84.9,-14.7,-79.9,-29.3,-71.4,-41.5C-62.9,-53.7,-50.8,-63.5,-37.6,-70.9C-24.4,-78.3,-12.2,-83.4,1.1,-85.4C14.5,-87.4,28.9,-86.3,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 text-center lg:text-left">
+                    <div>
+                        <span class="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold tracking-wide mb-6 uppercase">
+                            Admission Open for 2026-27
+                        </span>
+                        <h1 class="text-5xl md:text-7xl font-black text-indigo-900 leading-tight">
+                            Nurturing <span class="text-pink-500">Minds</span>, <br />
+                            Growing <span class="text-yellow-500">Dreams</span>.
+                        </h1>
+                        <p class="mt-6 text-lg text-slate-600 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                            Join India's most loved pre-school where learning is a joyful adventure. We focus on holistic development, creativity, and values that last a lifetime.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all flex items-center justify-center">
+                            Enquire now
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                </div>
+                
+                <div class="relative">
+                    <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl transform rotate-1 group">
+                        <img 
+                            src="./school-kid.jpg" 
+                            alt="Indian Kids Playing" 
+                            class="w-full h-[400px] md:h-[550px] object-cover"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/60 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8 right-8 text-white">
+                            <div class="flex items-center space-x-1 mb-2">
+                                
+                            </div>
+                            <p class="italic text-lg">"The best environment for my child to bloom."</p>
+                            <p class="font-bold mt-2">— Mrs. Anjali Sharma, Hyderabad</p>
+                        </div>
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full -z-0 animate-pulse"></div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-pink-100 rounded-full -z-0"></div>
+                </div>
             </div>
         </div>
-
-        <!-- Class Card 2 -->
-        <div class="class-card">
-            <div class="class-image">
-            <img src="images/class-img2.png" alt="Class 2">
-            </div>
-            <div class="class-content">
-            <h4>Pre-primary - (Nursury, LKG, UKG)</h4>
-            <p>Hands-on activities to boost fine motor skills and logical thinking.</p>
-            <div class="class-meta">
-                <span><strong>4–7</strong> Age Group</span>
-                <!-- <span><strong>30</strong> Classes</span>
-                <span><strong>10</strong>/h Class Price</span> -->
-            </div>
-            </div>
-        </div>
-
-        <!-- Class Card 3 -->
-        <div class="class-card">
-            <div class="class-image">
-            <img src="images/class-img3.png" alt="Class 3">
-            <!-- <span class="badge">Admission Closed</span> -->
-            </div>
-            <div class="class-content">
-            <h4>Primary - (1st to 5th)</h4>
-            <p>Play-based science and discovery to spark curiosity and confidence.</p>
-            <div class="class-meta">
-                <span><strong>7–12</strong> Age Group</span>
-                <span><strong>30</strong> Classes</span>
-                <span><strong>10</strong>/h Class Price</span>
-            </div>
-            </div>
-        </div>
-        </div>
-
-        <!-- <a href="#" class="more-btn">More Classes</a> -->
-    </div>
     </section>
 
-  
-  <!-- Section 4: Recent Blog -->
-    <section class="blog-section">
-    <div class="container text-center">
-        <h2>Recent <span>Blog</span></h2>
-        <p class="subtitle">Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
-
-        <div class="blog-grid">
-        <!-- Blog Card 1 -->
-        <div class="blog-card">
-            <div class="blog-image">
-            <img src="images/blog1.png" alt="Blog Post 1">
-            <div class="date-box">
-                <span class="day">27</span>
-                <span class="month">January</span>
-                <span class="year">2019</span>
+    <!-- Stats Section -->
+    <section class="bg-indigo-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="text-white">
+                <p class="text-4xl font-black text-yellow-400 mb-1">19+</p>
+                <p class="font-bold uppercase tracking-widest text-xs opacity-70">Experience</p>
+                <p class="text-indigo-300 text-sm">Years</p>
             </div>
+            <div class="text-white">
+                <p class="text-4xl font-black text-yellow-400 mb-1">20+</p>
+                <p class="font-bold uppercase tracking-widest text-xs opacity-70">Qualified Teachers</p>
+                <p class="text-indigo-300 text-sm">Experts</p>
             </div>
-            <div class="blog-content">
-            <h4>Skills To Develop Your Child Memory</h4>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <div class="blog-footer">
-                <a href="#" class="read-more">Read More →</a>
-                <span class="admin">Admin</span>
-                <span class="comments">💬 3</span>
+            <div class="text-white">
+                <p class="text-4xl font-black text-yellow-400 mb-1">2</p>
+                <p class="font-bold uppercase tracking-widest text-xs opacity-70">Campuses</p>
+                <p class="text-indigo-300 text-sm">Locations</p>
             </div>
+            <div class="text-white">
+                <p class="text-4xl font-black text-yellow-400 mb-1">300+</p>
+                <p class="font-bold uppercase tracking-widest text-xs opacity-70">Active Students</p>
+                <p class="text-indigo-300 text-sm">Kids</p>
             </div>
         </div>
-
-        <!-- Blog Card 2 -->
-        <div class="blog-card">
-            <div class="blog-image">
-            <img src="images/blog2.png" alt="Blog Post 2">
-            <div class="date-box">
-                <span class="day">27</span>
-                <span class="month">January</span>
-                <span class="year">2019</span>
-            </div>
-            </div>
-            <div class="blog-content">
-            <h4>Skills To Develop Your Child Memory</h4>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <div class="blog-footer">
-                <a href="#" class="read-more">Read More →</a>
-                <span class="admin">Admin</span>
-                <span class="comments">💬 3</span>
-            </div>
-            </div>
-        </div>
-
-        <!-- Blog Card 3 -->
-        <div class="blog-card">
-            <div class="blog-image">
-            <img src="images/blog3.png" alt="Blog Post 3">
-            <div class="date-box">
-                <span class="day">27</span>
-                <span class="month">January</span>
-                <span class="year">2019</span>
-            </div>
-            </div>
-            <div class="blog-content">
-            <h4>Skills To Develop Your Child Memory</h4>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <div class="blog-footer">
-                <a href="#" class="read-more">Read More →</a>
-                <span class="admin">Admin</span>
-                <span class="comments">💬 3</span>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
     </section>
 
-    <section class="staff-section">
-    <div class="container text-center">
-        <h2>Our <span>Qualified Staffs</span></h2>
-        <div class="staff-grid">
-
-        <!-- Staff Flip Card -->
-        <div class="flip-card">
-            <div class="flip-inner">
-            <!-- Front -->
-            <div class="flip-front">
-                <img src="images/staff1.png" alt="John Parker">
-                <p class="role">Instructor / Teacher</p>
-                <h3>John Parker (PhD)</h3>
+    <!-- Programs Section -->
+    <section id="programs" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-indigo-900 text-4xl md:text-5xl font-black mb-4">Our Programs</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Tailored learning paths designed for different developmental stages of early childhood.</p>
             </div>
-            <!-- Back -->
-            <div class="flip-back">
-                <p>John is a seasoned educator with over 10 years of experience in child psychology and early development programs.</p>
-                <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="flip-card">
-            <div class="flip-inner">
-            <!-- Front -->
-            <div class="flip-front">
-                <img src="images/staff1.png" alt="John Parker">
-                <p class="role">Instructor / Teacher</p>
-                <h3>John Parker (PhD)</h3>
-            </div>
-            <!-- Back -->
-            <div class="flip-back">
-                <p>John is a seasoned educator with over 10 years of experience in child psychology and early development programs.</p>
-                <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
-
-        <div class="flip-card">
-            <div class="flip-inner">
-            <!-- Front -->
-            <div class="flip-front">
-                <img src="images/staff1.png" alt="John Parker">
-                <p class="role">Instructor / Teacher</p>
-                <h3>John Parker (PhD)</h3>
-            </div>
-            <!-- Back -->
-            <div class="flip-back">
-                <p>John is a seasoned educator with over 10 years of experience in child psychology and early development programs.</p>
-                <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
-
-        <div class="flip-card">
-            <div class="flip-inner">
-            <!-- Front -->
-            <div class="flip-front">
-                <img src="images/staff1.png" alt="John Parker">
-                <p class="role">Instructor / Teacher</p>
-                <h3>John Parker (PhD)</h3>
-            </div>
-            <!-- Back -->
-            <div class="flip-back">
-                <p>John is a seasoned educator with over 10 years of experience in child psychology and early development programs.</p>
-                <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
-        <!-- Repeat for others -->
-        <!-- Replace bios and names accordingly -->
-        <!-- You can duplicate the above block 3 more times -->
-
-        </div>
-    </div>
-    </section>
-
-
-    
-    <br/>
-    <br/>
-    <br/>
-
-
-    <!-- Contact us section start -->
-
-    <section class="contact">
-
-        <div class="contact-us">
-            <div class="form-container">
-                <h2>Contact Us</h2>
-                <form>
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your full name" required />
-                  </div>
             
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your email address" required />
-                  </div>
-            
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="Write your message..." required></textarea>
-                  </div>
-            
-                  <div class="form-group">
-                    <button type="submit">Send Message</button>
-                  </div>
-                </form>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+                
+
+                <div class="group p-8 rounded-[2rem] bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-slate-100 relative overflow-hidden">
+                    <div class="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg transform group-hover:rotate-6 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black text-indigo-900 mb-2">Playgroup</h3>
+                    <p class="text-indigo-600 font-bold mb-4">3.5 - 4.5 Years</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Focusing on sensory development, language skills, and social interaction through play-way methods.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-indigo-900 font-bold hover:text-pink-500 transition-colors">
+                        Learn More 
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute top-0 right-0 p-4 opacity-5 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
+                        <span class="text-6xl font-black">01</span>
+                    </div>
+                </div>
+
+                <div class="group p-8 rounded-[2rem] bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-slate-100 relative overflow-hidden">
+                    <div class="w-14 h-14 bg-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg transform group-hover:rotate-6 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black text-indigo-900 mb-2">Pre-Primary</h3>
+                    <p class="text-indigo-600 font-bold mb-4">4.5 - 5.5 Years</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Hands-on activities to boost fine motor skills and logical thinking
+                    </p>
+                    <a href="#" class="inline-flex items-center text-indigo-900 font-bold hover:text-pink-500 transition-colors">
+                        Learn More 
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute top-0 right-0 p-4 opacity-5 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
+                        <span class="text-6xl font-black">02</span>
+                    </div>
+                </div>
+
+                <div class="group p-8 rounded-[2rem] bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-slate-100 relative overflow-hidden">
+                    <div class="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg transform group-hover:rotate-6 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black text-indigo-900 mb-2">1st - 5th</h3>
+                    <p class="text-indigo-600 font-bold mb-4">5-8 Years</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Play-based science and discovery to spark curiosity and confidence.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-indigo-900 font-bold hover:text-pink-500 transition-colors">
+                        Learn More 
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute top-0 right-0 p-4 opacity-5 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
+                        <span class="text-6xl font-black">03</span>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-        <br />
-        <br />
-        <br />
-
     </section>
-    
 
+    <!-- Why Choose Us -->
+    <section id="about" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="space-y-4 pt-8">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&q=80&w=400" class="rounded-3xl shadow-lg w-full h-64 object-cover" alt="Student 1" />
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=400" class="rounded-3xl shadow-lg w-full h-48 object-cover" alt="Student 2" />
+                    </div>
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" class="rounded-3xl shadow-lg w-full h-48 object-cover" alt="Student 3" />
+                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=400" class="rounded-3xl shadow-lg w-full h-64 object-cover" alt="Student 4" />
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-black text-indigo-900 mb-8 leading-tight">
+                        Empowering Kids to <br />
+                        <span class="text-pink-500 underline decoration-yellow-400">Discover</span> their potential
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1">
+                                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indigo-900 text-xl">Global Curriculum</h4>
+                                <p class="text-slate-500">Integrated play-way and Montessori teaching methodologies.</p>
+                            </div>
+                        </div>
 
-    <!-- Contact us section end -->
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1">
+                                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indigo-900 text-xl">Safety First</h4>
+                                <p class="text-slate-500">CCTV monitored premises with child-safe environment and infrastructure.</p>
+                            </div>
+                        </div>
 
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1">
+                                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indigo-900 text-xl">Skill Focus</h4>
+                                <p class="text-slate-500">Extra-curricular activities including Yoga, Music, Art & Craft.</p>
+                            </div>
+                        </div>
 
-    <div class="scroll-container">
-        <div class="scroll-content">
-        <!-- Repeat image set twice for infinite feel -->
-        <img src="images/blog1.png" alt="">
-        <img src="images/blog2.png" alt="">
-        <img src="images/blog3.png" alt="">
-        <img src="images/blog1.png" alt="">
-        <img src="images/blog2.png" alt="">
-        <img src="images/blog3.png" alt="">
-        <img src="images/blog1.png" alt="">
-        <img src="images/blog2.png" alt="">
-        <img src="images/blog3.png" alt="">
-        <img src="images/blog1.png" alt="">
-        <img src="images/blog2.png" alt="">
-        <img src="images/blog3.png" alt="">
-        <img src="images/blog1.png" alt="">
-        <img src="images/blog2.png" alt="">
-        <img src="images/blog3.png" alt="">
-        </div>
-    </div>
-
-    <footer class="main-footer">
-    <div class="container">
-
-
-        <div class="row">
-
-        <!-- Left Side: Logo + Description + Social Icons -->
-        <div class="col-md-6">
-            <h2 style="font-weight: bold; font-size: 28px;">
-            <!-- <span style="color:#00e3c2;">Bloom</span><span style="color:#f44336;">ing</span><span style="color:#ffeb3b;"> Ki</span><span style="color:#00e676;">ds</span> -->
-            <span style="color:var(--fresh-green);">Blooming Kids</span>
-            </h2>
-            <p style="max-width: 400px; margin-top: 15px;">
-            Users and submit their own items. You can create different packages and by connecting with your PayPal or Stripe account charge users for registration.
-            </p>
-
-            <!-- Social Icons -->
-            <div class="footer-social mt-4">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1">
+                                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indigo-900 text-xl">Small Batches</h4>
+                                <p class="text-slate-500">1:10 Teacher-Student ratio for personalized attention.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-10 bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition-all">
+                        Download Brochure
+                    </button>
+                </div>
             </div>
-
         </div>
+    </section>
 
-        <!-- Right Side: Quick Links + About Us -->
-        <div class="col-md-6">
-
-
-            <div class="row">
-
-            <!-- Quick Links -->
-            <div class="col-md-6">
-            <h4 style="font-weight: bold;">Quick Links</h4>
-            <ul class="footer-links">
-                <li><a href="#">Classes</a></li>
-                <li><a href="#">Join with us</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Events</a></li>
-            </ul>
+    <!-- Testimonials -->
+    <section id="parents" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-indigo-900 text-4xl font-black mb-4">Happy Parents</h2>
+                <p class="text-slate-500">What the community says about Blooming Kids School.</p>
             </div>
+            
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="bg-slate-50 p-8 rounded-3xl w-full md:w-[350px] shadow-sm hover:shadow-xl transition-shadow border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 leading-relaxed">"The individual attention my son gets is amazing. He's become much more expressive and confident since he joined Blooming Kids."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
+                            D
+                        </div>
+                        <div>
+                            <p class="font-bold text-indigo-900">Dr. Sameer Khan</p>
+                            <p class="text-slate-400 text-xs uppercase tracking-wider">Father of Ayan (UKG)</p>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- About Us -->
-            <div class="col-md-6">
-            <h4 style="font-weight: bold;">About Us</h4>
-            <ul class="footer-links">
-                <li><a href="#">Our Team</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Testimonial</a></li>
-                <li><a href="#">Programming</a></li>
-                <li><a href="#">User Stories</a></li>
-            </ul>
+                <div class="bg-slate-50 p-8 rounded-3xl w-full md:w-[350px] shadow-sm hover:shadow-xl transition-shadow border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 leading-relaxed">"I was worried about my daughter's transition to school, but the teachers here are so warm. She now waits for Monday morning to go back!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
+                            M
+                        </div>
+                        <div>
+                            <p class="font-bold text-indigo-900">Ms. Priya Iyer</p>
+                            <p class="text-slate-400 text-xs uppercase tracking-wider">Mother of Diya (Nursery)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-3xl w-full md:w-[350px] shadow-sm hover:shadow-xl transition-shadow border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 leading-relaxed">"Their focus on both academics and personality development is what sets them apart from other pre-schools in the city."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
+                            M
+                        </div>
+                        <div>
+                            <p class="font-bold text-indigo-900">Mr. Rajesh G.</p>
+                            <p class="text-slate-400 text-xs uppercase tracking-wider">Father of Siya (LKG)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+                <div class="p-8 md:p-16">
+                    <h2 class="text-4xl font-black text-indigo-900 mb-8">Get In Touch</h2>
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your inquiry! We will contact you soon.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Parent Name</label>
+                                <input type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all" placeholder="Enter name" required />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all" placeholder="+91 XXXX XXXX" required />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Child's Age</label>
+                            <select class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all" required>
+                                <option value="">Select age group</option>
+                                <option>2 - 3 Years</option>
+                                <option>3 - 4 Years</option>
+                                <option>4 - 5 Years</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Message</label>
+                            <textarea class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all h-32" placeholder="Tell us more..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-indigo-700 transition-all flex items-center justify-center space-x-2">
+                            <span>Submit Inquiry</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="bg-indigo-900 p-8 md:p-16 text-white">
+                    <h3 class="text-3xl font-bold mb-10">Branches</h3>
+                    
+                    <div class="space-y-10">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-indigo-800 rounded-xl">
+                                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-xl mb-1">Somajiguda</p>
+                                <p class="text-indigo-200 leading-relaxed">
+                                    6-3-1247/339, Rajnagar, Somajiguda, Hyderabad - 500082
+                                </p>
+                                <p class="mt-2 text-yellow-400 font-bold flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                    +91-9347801881
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-indigo-800 rounded-xl">
+                                <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-xl mb-1">Maniconda</p>
+                                <p class="text-indigo-200 leading-relaxed">
+                                    89, Shaikpet Main Rd, Friends Colony, Jai Hind Nagar Colony, Qutub Shahi Tombs, Hyderabad, Telangana 500089
+                                </p>
+                                <p class="mt-2 text-pink-400 font-bold flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                    +91-9848135134
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-10 border-t border-indigo-800">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="font-semibold">Mon - Sat: 08:30 AM - 03:30 PM</p>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="font-semibold">ss.bloomingkids@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-800 pb-8 mb-8">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-8 h-8 bg-yellow-400 rounded-md flex items-center justify-center">
+                        <img 
+                            src="./logo.jpg" 
+                            alt="Indian Kids Playing" 
+                        />
+                    </div>
+                    <span class="text-white font-black tracking-tight text-xl uppercase">
+                        Blooming Kids
+                    </span>
+                </div>
+                <div class="flex space-x-6 text-sm font-semibold">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Admissions</a>
+                </div>
+            </div>
+            <div class="text-center text-xs opacity-50">
+                <p>&copy; 2026 Blooming Kids School - All Rights Reserved.</p>
+            </div>
         </div>
-    
-        <br/>
-        <br/>
-
-        <br/>
-
-    
-        <div class="container" style="text-align: center;">
-            <p>Copyright ©2025 All rights reserved | Blooming Kids</p>
-        </div>
-    
-    </div>
     </footer>
 
-  <footer class="site-footer">
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  </footer>
+        menuToggle.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('animate-in');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('animate-in');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
 
+        // Close mobile menu when link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
 
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > 50) {
+                navbar.classList.remove('bg-transparent', 'py-4');
+                navbar.classList.add('bg-white', 'shadow-md', 'py-2');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+            }
+            
+            lastScroll = currentScroll;
+        });
 
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-  </script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
