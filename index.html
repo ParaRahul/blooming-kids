@@ -7,16 +7,16 @@
     <title>Blooming Kids School | Best Preschool and Primary School in Hyderabad</title>
 
     <!-- SEO -->
-    <meta name="description" content="Blooming Kids School is one of the best preschools in Hyderabad with branches in Somajiguda and Maniconda. Admissions open for 2026-27.">
-    <meta name="keywords" content="Best Preschool in Hyderabad, Play School Somajiguda, Maniconda School, Nursery School Hyderabad, Blooming Kids Hyderabad">
+    <meta name="description" content="Blooming Kids School is one of the best pre-primary and primary school in Hyderabad with branches in Somajiguda and Maniconda. Admissions open for 2026-27.">
+    <meta name="keywords" content="Best Preschool in Hyderabad, Primary school ,Play School Somajiguda, Maniconda School, Nursery School Hyderabad, Blooming Kids Hyderabad">
     <meta name="author" content="Blooming Kids School">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Blooming Kids School - Admissions Open">
-    <meta property="og:description" content="Top-rated preschool in Hyderabad with holistic education and safe environment.">
+    <meta property="og:description" content="Top-rated preschool and primary school in Hyderabad with holistic education and safe environment.">    
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./images/gallery-01.jpg">
+    <meta property="og:image" content="./images/gallery-02.jpg">
 
     <!-- Security -->
     <!-- <meta http-equiv="Content-Security-Policy"
@@ -47,7 +47,7 @@
         "addressLocality": "Hyderabad",
         "addressCountry": "India"
         },
-        "telephone": "+91 9848135134"
+        "telephone": "+919848135134"
         }
     </script>
 
@@ -311,7 +311,7 @@
     <section id="about" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 grid grid-cols-2 gap-4" id="about-us-images" class="hidden md:block">
+                <div class="hidden md:grid lg:w-1/2 grid-cols-2 gap-4" id="about-us-images">
                     <div class="space-y-4 pt-8">
                         <img src="./images/about-01.jpg" class="rounded-3xl shadow-lg w-full h-70 object-cover" alt="photo" />
                         <img src="./images/about-02.jpg" class="rounded-3xl shadow-lg w-full h-70 object-cover" alt="photo" />
@@ -319,7 +319,7 @@
                     <div class="space-y-4">
                         <img src="./images/about-03.jpg" class="rounded-3xl shadow-lg w-full h-60 object-cover" alt="photo" />
                         <img src="./images/about-04.jpg" class="rounded-3xl shadow-lg w-full h-64 object-cover" alt="photo" />
-                        <img src="./images/about-05.jpg" class="rounded-3xl shadow-lg w-full h-64 object-cover" alt="photo" />
+                        <img src="./images/about-05.JPG" class="rounded-3xl shadow-lg w-full h-64 object-cover" alt="photo" />
 
                     </div>
                 </div>
@@ -589,7 +589,7 @@
                             <textarea class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all h-32" placeholder="Tell us more..."></textarea>
                         </div>
                         <button type="submit" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-indigo-700 transition-all flex items-center justify-center space-x-2">
-                            <span>Submit Inquiry</span>
+                            <span>Submit Enquiry</span>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
@@ -876,7 +876,7 @@
 
         function redirectToWhatsApp(name, phone, age, message, isEnquireNowBtnClicked=false) {
             const text = encodeURIComponent(
-                `Hello Blooming Kids School,
+                `Hello Blooming Kids,
 
                 Parent Name: ${name}
                 Phone: ${phone}
@@ -885,10 +885,14 @@
             );
 
             const enquireNowText = encodeURIComponent(
-                `Hello Blooming Kids School,
+                `Hello Blooming Kids,
 
                 I would like to enquire about admissions.`
             );
+
+            if(isEnquireNowBtnClicked) {
+                text = enquireNowText;
+            }
 
             window.open(`https://wa.me/${schoolNumber}?text=${text}`, "_blank");
         }
